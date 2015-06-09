@@ -1,6 +1,6 @@
 {
   "name": "react-anchorify-text",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React component which render text with anchored url(s)",
   "main": "components/AnchorifyText.js",
   "scripts": {
