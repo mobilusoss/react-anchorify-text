@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>React-anchorify-text by georgeOsdDev</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>React-anchorify-text</h1>
+        <p>Create anchor tag with urls in text.</p>
+
+        <p class="view"><a href="https://github.com/georgeOsdDev/react-anchorify-text">View the Project on GitHub <small>georgeOsdDev/react-anchorify-text</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/georgeOsdDev/react-anchorify-text/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/georgeOsdDev/react-anchorify-text/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/georgeOsdDev/react-anchorify-text">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="react-anchorify-text--" class="anchor" href="#react-anchorify-text--" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-anchorify-text <a href="https://travis-ci.org/georgeOsdDev/react-anchorify-text"><img src="https://travis-ci.org/georgeOsdDev/react-anchorify-text.svg?branch=develop" alt="Build Status"></a> <a href="http://badge.fury.io/js/react-anchorify-text"><img src="https://badge.fury.io/js/react-anchorify-text.svg" alt="npm version"></a>
+</h1>
+
+<p>Create anchor tag with urls in text.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p><a href="http://georgeosddev.github.io/react-anchorify-text/example/">View Demo</a></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-bash"><pre>npm install --save react-anchorify-text</pre></div>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a id="anchorifytext" class="anchor" href="#anchorifytext" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>AnchorifyText</code>
+</h3>
+
+<h4>
+<a id="props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h4>
+
+<div class="highlight highlight-javascript"><pre>AnchorifyText.propTypes <span class="pl-k">=</span> {
+  text<span class="pl-k">:</span> React.PropTypes.string.isRequired,
+  regex<span class="pl-k">:</span> React.PropTypes.string,
+  flags<span class="pl-k">:</span> React.PropTypes.string,
+  target<span class="pl-k">:</span> React.PropTypes.string
+};</pre></div>
+
+<ul>
+<li><p><code>text</code>: String to parse url</p></li>
+<li>
+<p><code>regex</code>: Regular expression as string to detect url .
+Default to</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\\</span>b((?:[a-z][<span class="pl-cce">\\</span>w-]+:(?:<span class="pl-cce">\\</span>/{1,3}|[a-z0-9%])|www<span class="pl-cce">\\</span>d{0,3}[.]|[a-z0-9.<span class="pl-cce">\\</span>-]+[.][a-z]{2,4}<span class="pl-cce">\\</span>/)(?:[^<span class="pl-cce">\\</span>s()&lt;&gt;]+|<span class="pl-cce">\\</span>(([^<span class="pl-cce">\\</span>s()&lt;&gt;]+|(<span class="pl-cce">\\</span>([^<span class="pl-cce">\\</span>s()&lt;&gt;]+<span class="pl-cce">\\</span>)))*<span class="pl-cce">\\</span>))+(?:<span class="pl-cce">\\</span>(([^<span class="pl-cce">\\</span>s()&lt;&gt;]+|(<span class="pl-cce">\\</span>([^<span class="pl-cce">\\</span>s()&lt;&gt;]+<span class="pl-cce">\\</span>)))*<span class="pl-cce">\\</span>)|[^<span class="pl-cce">\\</span>s`!()<span class="pl-cce">\\</span>[<span class="pl-cce">\\</span>]{};:<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>'<span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>.,&lt;&gt;?«»“”‘’]))<span class="pl-pds">'</span></span>,</pre></div>
+
+<p>from <a href="http://stackoverflow.com/questions/17733236/optimize-gruber-url-regex-for-javascript">http://stackoverflow.com/questions/17733236/optimize-gruber-url-regex-for-javascript</a></p>
+</li>
+<li><p><code>flags</code>: Regular expression's frag, default to "ig".</p></li>
+<li>
+<p><code>target</code>: href target for anchor tag, default to "_blank".</p>
+
+<p>passed <code>regex</code> and <code>flags</code> will be used as <code>new Regex(this.props.regex, this.props.flags)</code></p>
+</li>
+</ul>
+
+<h4>
+<a id="children" class="anchor" href="#children" aria-hidden="true"><span class="octicon octicon-link"></span></a>Children</h4>
+
+<p>If no children are passed to <code>AnchorifyText</code>, found urls will be rendered as <code>&lt;a&gt;</code> tag.
+If one child are passed to <code>AnchorifyText</code>, found urls are rendered as child tag with <code>url</code> as prop.</p>
+
+<h2>
+<a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage example</h2>
+
+<div class="highlight highlight-javascript"><pre>
+<span class="pl-k">const</span> <span class="pl-c1">textWithUrl</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello Google(http://google.com) and GitHub =&gt; https://github.com/ and Apple(www.apple.com)<span class="pl-pds">"</span></span>;
+
+<span class="pl-k">&lt;</span>AnchorifyText text<span class="pl-k">=</span>{textWithUrl}<span class="pl-k">&gt;&lt;</span>/AnchorifyText<span class="pl-k">&gt;</span>
+
+<span class="pl-k">&lt;</span>AnchorifyText text<span class="pl-k">=</span>{textWithUrl}<span class="pl-k">&gt;</span>
+  <span class="pl-k">&lt;</span>MyCustomAnchor<span class="pl-k">&gt;&lt;</span>/MyCustomAnchor<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span>/AnchorifyText<span class="pl-k">&gt;</span></pre></div>
+
+<p>See  <a href="https://github.com/georgeOsdDev/react-anchorify-text/tree/develop/example">example</a></p>
+
+<div class="highlight highlight-bash"><pre>npm install
+npm run start:example</pre></div>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<div class="highlight highlight-bash"><pre>npm <span class="pl-c1">test</span></pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/georgeOsdDev">georgeOsdDev</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
