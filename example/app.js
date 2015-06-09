@@ -9,7 +9,8 @@ window.React = React;
 const t0 = 'Hello　World';
 const t1 = 'Hello Google(http://google.com)';
 const t2 = 'Hello Google(http://google.com) and GitHub(https://github.com/) and Apple(www.apple.com)';
-const t3 = 'With custome anchor => Hello Google(http://google.com) and GitHub(https://github.com/) and Apple(www.apple.com)';
+const t3 = 'With custome anchor: Hello Google(http://google.com) and GitHub(https://github.com/) and Apple(www.apple.com)';
+const t4 = 'With custome regex: Hello Google(http://google.com) and GitHub(https://github.com/) and Apple(www.apple.com)';
 
 class CustomeAnchor extends React.Component {
   render() {
@@ -53,9 +54,9 @@ class App extends React.Component {
         </div>
         <hr/>
         <div>
-          <p>{t2}</p>
+          <p>{t4}</p>
           <p>↓</p>
-          <p><AnchorifyText text={t2} regex={'google'} flags={""}/><CustomeAnchor /></p>
+          <p><AnchorifyText text={t4} regex={'google'} flags={""}/><CustomeAnchor /></p>
         </div>
       </div>
     )
