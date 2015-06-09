@@ -1,4 +1,4 @@
-# React-anchorify-text [![Build Status](https://travis-ci.org/georgeOsdDev/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/georgeOsdDev/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-draggable-tab.svg)](http://badge.fury.io/js/react-anchorify-text)
+# React-anchorify-text [![Build Status](https://travis-ci.org/georgeOsdDev/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/georgeOsdDev/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-anchorify-text.svg)](http://badge.fury.io/js/react-anchorify-text)
 
 Create anchor tag with urls in text.
 
