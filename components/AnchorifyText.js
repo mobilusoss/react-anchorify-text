@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+const DELIMITER = String.fromCharCode('\u0008');
+
 class AnchorifyText extends React.Component {
   constructor(props) {
     super(props);
@@ -26,14 +28,14 @@ class AnchorifyText extends React.Component {
 
   anchorify(text) {
     return text.replace(this.state.regex, function(url) {
-                    return '\u0008' + url + '\u0008';
+                    return DELIMITER + url + DELIMITER;
                 })
-                .split('\u0008')
+                .split(DELIMITER)
                 .map((t, i) => {
                   let key = 'anchorify-text-' + i;
                   if (this.state.regex.test(t)) {
                     if (React.Children.count(this.props.children) === 1) {
-                      return React.addons.cloneWithProps(this.props.children, {url: t, key: key});
+                      return React.cloneElement(this.props.children, {url: t, key: key});
                     } else {
                       return (<a key={key} href={t} target={this.props.target}>{t}</a>);
                     }
