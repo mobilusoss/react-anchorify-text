@@ -1,6 +1,7 @@
 'use strict';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
 import AnchorifyText  from '../components/AnchorifyText';
 
 //allow react dev tools work
@@ -55,6 +56,7 @@ class App extends React.Component {
         <hr/>
         <div>
           <p>{t4}</p>
+          <p>Regex: 'google'</p>
           <p>↓</p>
           <p><AnchorifyText text={t4} regex={'google'} flags={""}/><CustomeAnchor /></p>
         </div>
@@ -63,4 +65,4 @@ class App extends React.Component {
   }
 };
 
-React.render(<App/>, document.getElementById('out'));
+ReactDom.render(<App/>, document.getElementById('out'));
