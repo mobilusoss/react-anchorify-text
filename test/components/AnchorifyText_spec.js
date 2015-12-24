@@ -5,7 +5,7 @@ import ReactDom from 'react-dom';
 import ReactTestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 let expect = chai.expect;
-import AnchorifyText from '../../components/AnchorifyText';
+import AnchorifyText from '../../src/components/AnchorifyText';
 
 describe('Test of AnchorifyText', () => {
 
