@@ -71,7 +71,7 @@ describe('Test of AnchorifyText', () => {
     expect(ReactDom.findDOMNode(atag[1]).getAttribute('target')).to.be.eql('_blank');
 
     expect(ReactDom.findDOMNode(atag[2]).getAttribute('href')).to.be.eql('http://www.apple.com');
-    expect(ReactDom.findDOMNode(atag[2]).textContent).to.be.eql('http://www.apple.com');
+    expect(ReactDom.findDOMNode(atag[2]).textContent).to.be.eql('www.apple.com');
     expect(ReactDom.findDOMNode(atag[2]).getAttribute('target')).to.be.eql('_blank');
   });
 

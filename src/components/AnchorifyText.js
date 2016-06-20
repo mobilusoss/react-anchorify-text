@@ -37,8 +37,8 @@ class AnchorifyText extends React.Component {
                     if (React.Children.count(this.props.children) === 1) {
                       return React.cloneElement(this.props.children, {url: t, key: key});
                     } else {
-                      if (t.indexOf('://') === -1) t = 'http://' + t;
-                      return (<a key={key} href={t} target={this.props.target}>{t}</a>);
+                      const hrefURL = t.indexOf('://') === -1 ? 'http://' + t : t;
+                      return (<a key={key} href={hrefURL} target={this.props.target}>{t}</a>);
                     }
                   } else {
                     return (<span key={key} >{t}</span>);
