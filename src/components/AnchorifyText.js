@@ -1,22 +1,10 @@
-'use strict';
-
 import React from 'react';
-
-const DELIMITER = String.fromCharCode('\u0008');
+import LinkifyIt from 'linkify-it';
+import tlds from 'tlds';
 
 class AnchorifyText extends React.Component {
   constructor(props) {
     super(props);
-
-    let regex;
-    if (this.props.flags) {
-      regex = new RegExp(this.props.regex, this.props.flags);
-    } else {
-      regex = new RegExp(this.props.regex);
-    }
-    this.state = {
-      regex: regex
-    };
   }
 
   render() {
@@ -27,38 +15,41 @@ class AnchorifyText extends React.Component {
   }
 
   anchorify(text) {
-    return text.replace(this.state.regex, function(url) {
-                    return DELIMITER + url + DELIMITER;
-                })
-                .split(DELIMITER)
-                .map((t, i) => {
-                  let key = 'anchorify-text-' + i;
-                  if (this.state.regex.test(t)) {
-                    if (React.Children.count(this.props.children) === 1) {
-                      return React.cloneElement(this.props.children, {url: t, key: key});
-                    } else {
-                      const hrefURL = t.indexOf('://') === -1 ? 'http://' + t : t;
-                      return (<a key={key} href={hrefURL} target={this.props.target}>{t}</a>);
-                    }
-                  } else {
-                    return (<span key={key} >{t}</span>);
-                  }
-                });
+    const matches = this.props.linkify.match(text);
+    if (matches === null){
+      return text;
+    }
+    let last = 0;
+    const result = [];
+    matches.forEach((match, i) => {
+      const keyBefore = 'anchorify-text-before' + i;
+      const keyMatch = 'anchorify-text-match' + i;
+      if (last < match.index) {
+        result.push(<span key={keyBefore}>{text.slice(last, match.index)}</span>);
+      }
+      if (React.Children.count(this.props.children) === 1) {
+        result.push(React.cloneElement(this.props.children, {url: match.url, key: keyMatch, match: match}));
+      } else {
+        result.push(<a key={keyMatch} href={match.url} target={this.props.target}>{match.raw}</a>);
+      }
+      last = match.lastIndex;
+    });
+    if (last < text.length) {
+      result.push(<span key={'anchorify-text-last'}>{text.slice(last)}</span>);
+    }
+    return result;
   }
 }
 
 AnchorifyText.propTypes = {
   text: React.PropTypes.string.isRequired,
-  regex: React.PropTypes.string,
-  flags: React.PropTypes.string,
-  target: React.PropTypes.string
+  linkify: React.PropTypes.object,
+  target: React.PropTypes.string,
 };
 
 AnchorifyText.defaultProps = {
-  // http://stackoverflow.com/questions/17733236/optimize-gruber-url-regex-for-javascript
-  regex: '\\b((?:[a-z][\\w-]+:(?:\\/{1,3}|[a-z0-9%])|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}\\/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:' + "'" + '.,<>?«»“”‘’]))',
-  flags: 'ig',
-  target: '_blank'
+  linkify: new LinkifyIt().tlds(tlds),
+  target: '_blank',
 };
 
 export default AnchorifyText;

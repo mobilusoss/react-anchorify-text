@@ -1,5 +1,8 @@
 ## Change Log
 
+### Ver 2.0.0
+  * #9 [Use linkify-it](https://github.com/georgeOsdDev/react-anchorify-text/issues/9)
+
 ### Ver 1.1.2
 
   * #8 [Update lib directory](https://github.com/georgeOsdDev/react-anchorify-text/pull/8)
