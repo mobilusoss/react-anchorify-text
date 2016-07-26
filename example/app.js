@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import AnchorifyText  from '../components/AnchorifyText';
+import AnchorifyText  from '../lib';
 
 //allow react dev tools work
 window.React = React;
