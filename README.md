@@ -21,28 +21,22 @@ npm install --save react-anchorify-text
 ```javascript
 AnchorifyText.propTypes = {
   text: React.PropTypes.string.isRequired,
-  regex: React.PropTypes.string,
+  linkify: React.PropTypes.object,
   flags: React.PropTypes.string,
-  target: React.PropTypes.string
 };
 ```
 
   * `text`: String to parse url
 
-  * `regex`: Regular expression as string to detect url .
-    Default to
-
-    ```javascript
-    '\\b((?:[a-z][\\w-]+:(?:\\/{1,3}|[a-z0-9%])|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}\\/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:' + "'" + '.,<>?«»“”‘’]))',
-    ```
-    from http://stackoverflow.com/questions/17733236/optimize-gruber-url-regex-for-javascript
-
-  * `flags`: Regular expression's frag, default to "ig".
+  * `linkify`: An instance of [linkify-it](https://github.com/markdown-it/linkify-it). default: `new LinkifyIt().tlds(require('tlds'))`
 
   * `target`: href target for anchor tag, default to "_blank".
 
-  passed `regex` and `flags` will be used as `new Regex(this.props.regex, this.props.flags)`
+  * ~~`regex`: Regular expression as string to detect url .~~
 
+  * ~~`flags`: Regular expression's frag, default to "ig".~~
+
+  `regex` and `flags` props are removed from v2.0.0. Use [linkify-it](https://github.com/markdown-it/linkify-it) instance instead.
 
 #### Children
 
