@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 2.1.0
+  * #14 [use the prop-types library instead]((https://github.com/georgeOsdDev/react-anchorify-text/issues/14)
+  * #13 [Match isn't being passed to cloned anchors](https://github.com/georgeOsdDev/react-anchorify-text/issues/13)
+
 ### Ver 2.0.0
   * #9 [Use linkify-it](https://github.com/georgeOsdDev/react-anchorify-text/issues/9)
 
