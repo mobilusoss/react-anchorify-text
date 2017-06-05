@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LinkifyIt from 'linkify-it';
 import tlds from 'tlds';
 
@@ -42,9 +43,9 @@ class AnchorifyText extends React.Component {
 }
 
 AnchorifyText.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  linkify: React.PropTypes.object,
-  target: React.PropTypes.string,
+  text: PropTypes.string.isRequired,
+  linkify: PropTypes.object,
+  target: PropTypes.string,
 };
 
 AnchorifyText.defaultProps = {
