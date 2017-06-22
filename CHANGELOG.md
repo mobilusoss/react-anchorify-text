@@ -1,5 +1,8 @@
 ## Change Log
 
+### Ver 2.1.1
+  * Move `react` and `react-dom` from dependencies to peerDependencies.
+
 ### Ver 2.1.0
   * #14 [use the prop-types library instead]((https://github.com/georgeOsdDev/react-anchorify-text/issues/14)
   * #13 [Match isn't being passed to cloned anchors](https://github.com/georgeOsdDev/react-anchorify-text/issues/13)

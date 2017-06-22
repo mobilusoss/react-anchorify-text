@@ -1,6 +1,6 @@
 {
   "name": "react-anchorify-text",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "React component which render text with anchored url(s)",
   "main": "lib/index.js",
   "scripts": {
@@ -51,16 +51,20 @@
     "karma-safari-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.31",
     "mocha": "^3.4.2",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
     "react-addons-test-utils": "^15.5.1",
     "rimraf": "^2.5.0",
     "watchify": "^3.6.0"
   },
   "dependencies": {
-    "linkify-it": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "linkify-it": "^2.0.0",
     "tlds": "^1.145.0"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   },
   "browserify": {
     "transform": [
