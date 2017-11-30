@@ -2,7 +2,8 @@ import LinkifyIt from 'linkify-it';
 import tlds from 'tlds';
 import React from 'react';
 import ReactDom from 'react-dom';
-import ReactTestUtils from 'react-addons-test-utils';
+import ReactTestUtils from 'react-dom/test-utils';
+import PropTypes from 'prop-types';
 import chai from 'chai';
 let expect = chai.expect;
 import AnchorifyText from '../../src/components/AnchorifyText';
@@ -25,7 +26,7 @@ describe('Test of AnchorifyText', () => {
   }
 
   CustomeAnchor.propTypes = {
-    url : React.PropTypes.string
+    url : PropTypes.string
   }
 
   let component;
