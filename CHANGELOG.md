@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 2.2.0
+  * Update `React` from 15.x to 16.x.
+  * Add yarn.lock
+
 ### Ver 2.1.1
   * Move `react` and `react-dom` from dependencies to peerDependencies.
 

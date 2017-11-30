@@ -36,7 +36,7 @@ module.exports = function(config) {
       transform: [
         ['babelify', {
             presets : [
-              'es2015',
+              'env',
               'react'
             ]
           }
