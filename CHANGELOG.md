@@ -1,5 +1,8 @@
 ## Change Log
 
+### Ver 2.3.0
+  * Update `Babel` from 6.x to 7.x.
+
 ### Ver 2.2.0
   * Update `React` from 15.x to 16.x.
   * Add yarn.lock
