@@ -60,12 +60,16 @@ const textWithUrl = "Hello Google(http://google.com) and GitHub => https://githu
 See  [example](https://github.com/mobilusoss/react-anchorify-text/tree/develop/example)
 
 ```bash
-npm install
-npm run start:example
+yarn
+yarn run start:example
 ```
 
 ## Tests
 
 ```bash
-npm test
+yarn run test
 ```
+
+## Update dependencies
+
+Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
