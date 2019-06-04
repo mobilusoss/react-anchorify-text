@@ -1,10 +1,10 @@
-# React-anchorify-text [![Build Status](https://travis-ci.org/georgeOsdDev/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/georgeOsdDev/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-anchorify-text.svg)](http://badge.fury.io/js/react-anchorify-text)
+# React-anchorify-text [![Build Status](https://travis-ci.org/mobilusoss/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-anchorify-text.svg)](http://badge.fury.io/js/react-anchorify-text)
 
 Create anchor tag with urls in text.
 
 ## Demo
 
-[View Demo](http://georgeosddev.github.io/react-anchorify-text/example/)
+[View Demo](http://mobilusoss.github.io/react-anchorify-text/example/)
 
 ## Installation
 
@@ -57,7 +57,7 @@ const textWithUrl = "Hello Google(http://google.com) and GitHub => https://githu
 </AnchorifyText>
 ```
 
-See  [example](https://github.com/georgeOsdDev/react-anchorify-text/tree/develop/example)
+See  [example](https://github.com/mobilusoss/react-anchorify-text/tree/develop/example)
 
 ```bash
 npm install
