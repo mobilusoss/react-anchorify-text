@@ -2,6 +2,7 @@
 
 ### Ver 2.3.1
   * Change url from georgeosddev to mobilusoss #19
+  * Update dependencies #21
 
 ### Ver 2.3.0
   * Update `Babel` from 6.x to 7.x.
