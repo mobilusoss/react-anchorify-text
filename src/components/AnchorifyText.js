@@ -16,7 +16,9 @@ class AnchorifyText extends React.Component {
   }
 
   anchorify(text) {
-    const matches = this.props.linkify.match(text);
+    const { linkify, children, target } = this.props;
+
+    const matches = linkify.match(text);
     if (matches === null){
       return text;
     }
@@ -28,10 +30,10 @@ class AnchorifyText extends React.Component {
       if (last < match.index) {
         result.push(<span key={keyBefore}>{text.slice(last, match.index)}</span>);
       }
-      if (React.Children.count(this.props.children) === 1) {
-        result.push(React.cloneElement(this.props.children, {url: match.url, key: keyMatch, match: match}));
+      if (React.Children.count(children) === 1) {
+        result.push(React.cloneElement(children, {url: match.url, key: keyMatch, match: match}));
       } else {
-        result.push(<a key={keyMatch} href={match.url} target={this.props.target}>{match.raw}</a>);
+        result.push(<a key={keyMatch} href={match.url} target={target}>{match.raw}</a>);
       }
       last = match.lastIndex;
     });
