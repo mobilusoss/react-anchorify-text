@@ -23,6 +23,7 @@ AnchorifyText.propTypes = {
   text: React.PropTypes.string.isRequired,
   linkify: React.PropTypes.object,
   flags: React.PropTypes.string,
+  nonUrlPartsRenderer: PropTypes.func,
 };
 ```
 
@@ -31,6 +32,8 @@ AnchorifyText.propTypes = {
   * `linkify`: An instance of [linkify-it](https://github.com/markdown-it/linkify-it). default: `new LinkifyIt().tlds(require('tlds'))`
 
   * `target`: href target for anchor tag, default to "_blank".
+
+  *  `nonUrlPartsRenderer`: callback for non-url parts of the `text`.
 
   * ~~`regex`: Regular expression as string to detect url .~~
 

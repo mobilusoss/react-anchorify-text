@@ -38,6 +38,7 @@ describe('Test of AnchorifyText', () => {
     component = ReactTestUtils.renderIntoDocument(<AnchorifyText text={t1}/>);
     expect(component.props.target).to.be.eql('_blank');
     expect(component.props.linkify).to.be.an('object');
+    expect(component.props.nonUrlPartsRenderer).to.be.an('function');
   });
 
   it('should render only span tag when no urls found', function () {
@@ -46,6 +47,20 @@ describe('Test of AnchorifyText', () => {
     expect(atag.length).to.be.eql(0);
     const spanTag = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'span');
     expect(ReactDom.findDOMNode(spanTag[0]).textContent).to.be.eql('Hello World');
+  });
+
+  it('should render only span with custom non url wrapper when supplied and no urls found', function () {
+    const nonUrlCallback = (text) => <div className="custom-class">{text}</div>;
+    component = ReactTestUtils.renderIntoDocument(<AnchorifyText text={t0} nonUrlPartsRenderer={nonUrlCallback} />);
+
+    const atag = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'a');
+    expect(atag.length).to.be.eql(0);
+    const spanTag = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'span');
+    expect(spanTag.length).to.be.eql(1);
+    const customComponent = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'custom-class');
+    expect(customComponent.length).to.be.eql(1);
+
+    expect(ReactDom.findDOMNode(customComponent[0]).textContent).to.be.eql('Hello World');
   });
 
   it('should parse text and render url with a tag', function () {
@@ -75,8 +90,7 @@ describe('Test of AnchorifyText', () => {
     expect(ReactDom.findDOMNode(atag[2]).getAttribute('target')).to.be.eql('_blank');
   });
 
-  it('should parse text and render urls with custome linkify', function () {
-
+  it('should parse text and render urls with custom linkify', function () {
     const myLinkify = new LinkifyIt().tlds(tlds).tlds('onion', true);
     component = ReactTestUtils.renderIntoDocument(<AnchorifyText text={t2} linkify={myLinkify} />);
     const atag = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'a');
@@ -103,8 +117,7 @@ describe('Test of AnchorifyText', () => {
 
   });
 
-  it('should parse text and render urls with custome tag', function () {
-
+  it('should parse text and render urls with custom tag', function () {
     component = ReactTestUtils.renderIntoDocument(<AnchorifyText text={t3}><CustomeAnchor /></AnchorifyText>);
     const atag = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'a');
     expect(atag.length).to.be.eql(0);
@@ -113,6 +126,27 @@ describe('Test of AnchorifyText', () => {
     expect(ReactDom.findDOMNode(strongTag[0]).textContent).to.be.eql('http://google.com');
     expect(ReactDom.findDOMNode(strongTag[1]).textContent).to.be.eql('https://github.com/');
     expect(ReactDom.findDOMNode(strongTag[2]).textContent).to.be.eql('http://www.apple.com');
+  });
+
+  it('should parse text, pass non url parts to nonUrlPartsRenderer, and render the results', function() {
+    const nonUrlCallback = (text) => <div className="custom-class">{text}</div>;
+
+    component = ReactTestUtils.renderIntoDocument(<AnchorifyText text={t1} nonUrlPartsRenderer={nonUrlCallback} />);
+
+    // Assert URLs are still wrapped
+    const atag = ReactTestUtils.scryRenderedDOMComponentsWithTag(component, 'a');
+    expect(atag).to.be.length(1);
+    expect(ReactDom.findDOMNode(atag[0]).getAttribute('href')).to.be.eql('http://google.com');
+    expect(ReactDom.findDOMNode(atag[0]).textContent).to.be.eql('http://google.com');
+    expect(ReactDom.findDOMNode(atag[0]).getAttribute('target')).to.be.eql('_blank');
+
+    // Assert custom callback is applied
+    const customComponents = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'custom-class');
+    const expectedText = ['Hello Google(', ')'];
+    expect(customComponents).to.have.lengthOf(2);
+    customComponents.forEach((component, index) => {
+      expect(component.textContent).to.be.eql(expectedText[index]);
+    });
   });
 
 });

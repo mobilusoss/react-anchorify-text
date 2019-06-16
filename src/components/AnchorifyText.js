@@ -16,11 +16,11 @@ class AnchorifyText extends React.Component {
   }
 
   anchorify(text) {
-    const { linkify, children, target } = this.props;
+    const { linkify, children, target, nonUrlPartsRenderer } = this.props;
 
     const matches = linkify.match(text);
     if (matches === null){
-      return text;
+      return nonUrlPartsRenderer(text);
     }
     let last = 0;
     const result = [];
@@ -28,7 +28,7 @@ class AnchorifyText extends React.Component {
       const keyBefore = 'anchorify-text-before' + i;
       const keyMatch = 'anchorify-text-match' + i;
       if (last < match.index) {
-        result.push(<span key={keyBefore}>{text.slice(last, match.index)}</span>);
+        result.push(<span key={keyBefore}>{nonUrlPartsRenderer(text.slice(last, match.index))}</span>);
       }
       if (React.Children.count(children) === 1) {
         result.push(React.cloneElement(children, {url: match.url, key: keyMatch, match: match}));
@@ -38,7 +38,7 @@ class AnchorifyText extends React.Component {
       last = match.lastIndex;
     });
     if (last < text.length) {
-      result.push(<span key={'anchorify-text-last'}>{text.slice(last)}</span>);
+      result.push(<span key={'anchorify-text-last'}>{nonUrlPartsRenderer(text.slice(last))}</span>);
     }
     return result;
   }
@@ -48,11 +48,13 @@ AnchorifyText.propTypes = {
   text: PropTypes.string.isRequired,
   linkify: PropTypes.object,
   target: PropTypes.string,
+  nonUrlPartsRenderer: PropTypes.func,
 };
 
 AnchorifyText.defaultProps = {
   linkify: new LinkifyIt().tlds(tlds),
   target: '_blank',
+  nonUrlPartsRenderer: (text) => text,
 };
 
 export default AnchorifyText;
