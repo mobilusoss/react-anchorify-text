@@ -1,5 +1,8 @@
 ## Change Log
 
+### Ver 2.4.0
+  * Allow Executing Callbacks on Non-URL Parts #23, #24
+
 ### Ver 2.3.1
   * Change url from georgeosddev to mobilusoss #19
   * Update dependencies #21
