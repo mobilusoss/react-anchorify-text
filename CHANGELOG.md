@@ -1,5 +1,9 @@
 ## Change Log
 
+### Ver 2.4.1
+  * Update dependencies with `ncu -u`
+  * Add codebeat
+
 ### Ver 2.4.0
   * Allow Executing Callbacks on Non-URL Parts #23, #24
 
