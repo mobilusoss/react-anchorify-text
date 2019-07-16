@@ -1,4 +1,4 @@
-# React-anchorify-text [![Build Status](https://travis-ci.org/mobilusoss/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-anchorify-text.svg)](http://badge.fury.io/js/react-anchorify-text)
+# React-anchorify-text [![Build Status](https://travis-ci.org/mobilusoss/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-anchorify-text.svg)](http://badge.fury.io/js/react-anchorify-text) [![codebeat badge](https://codebeat.co/badges/26eb9d7d-bc90-4351-8a22-ea198e350aff)](https://codebeat.co/projects/github-com-mobilusoss-react-anchorify-text-master)
 
 Create anchor tag with urls in text.
 
