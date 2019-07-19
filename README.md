@@ -1,4 +1,5 @@
 # React-anchorify-text [![Build Status](https://travis-ci.org/mobilusoss/react-anchorify-text.svg?branch=develop)](https://travis-ci.org/mobilusoss/react-anchorify-text) [![npm version](https://badge.fury.io/js/react-anchorify-text.svg)](http://badge.fury.io/js/react-anchorify-text) [![codebeat badge](https://codebeat.co/badges/26eb9d7d-bc90-4351-8a22-ea198e350aff)](https://codebeat.co/projects/github-com-mobilusoss-react-anchorify-text-master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmobilusoss%2Freact-anchorify-text.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmobilusoss%2Freact-anchorify-text?ref=badge_shield)
 
 Create anchor tag with urls in text.
 
@@ -76,3 +77,7 @@ yarn run test
 ## Update dependencies
 
 Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmobilusoss%2Freact-anchorify-text.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmobilusoss%2Freact-anchorify-text?ref=badge_large)
