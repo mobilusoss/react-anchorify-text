@@ -33,7 +33,7 @@ class AnchorifyText extends React.Component {
       if (React.Children.count(children) === 1) {
         result.push(React.cloneElement(children, {url: match.url, key: keyMatch, match: match}));
       } else {
-        result.push(<a key={keyMatch} href={match.url} target={target}>{match.raw}</a>);
+        result.push(<a key={keyMatch} href={match.url} target={target}>{nonUrlPartsRenderer(match.raw)}</a>);
       }
       last = match.lastIndex;
     });

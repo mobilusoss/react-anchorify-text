@@ -142,8 +142,8 @@ describe('Test of AnchorifyText', () => {
 
     // Assert custom callback is applied
     const customComponents = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'custom-class');
-    const expectedText = ['Hello Google(', ')'];
-    expect(customComponents).to.have.lengthOf(2);
+    const expectedText = ['Hello Google(', 'http://google.com', ')'];
+    expect(customComponents).to.have.lengthOf(3);
     customComponents.forEach((component, index) => {
       expect(component.textContent).to.be.eql(expectedText[index]);
     });
